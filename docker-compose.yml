@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_NAME=test_db
+      - DB_USER=dbuser
+      - DB_PASS=dbpass
+      - DB_HOST=db
+      - DB_PORT=5432
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: dbpass
+      POSTGRES_DB: test_db
+    ports:
+      - "15432:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "dbuser", "-d", "test_db", "-h", "localhost", "-p", "5432"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
+      start_period: 30s
+

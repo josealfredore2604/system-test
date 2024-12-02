@@ -1,0 +1,49 @@
+# VS Code
+.vscode/
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.db
+*.sqlite3
+
+# Virtualenv
+.venv/
+env/
+venv/
+
+# Pytest
+.cache/
+.pytest_cache/
+
+# VS Code settings
+settings.json
+
+# Python egg files
+*.egg
+*.egg-info
+dist/
+build/
+
+# Distribution / packaging
+*.tar.gz
+*.zip
+*.whl
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Pyre type checker
+.pyre/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pycharm
+.idea/
+
+.env
